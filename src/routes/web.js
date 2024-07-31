@@ -1,17 +1,21 @@
 import express from "express";
-import homeController from "../controllers/homeController";
+import homeController from "../controllers/homeController"
 const router = express.Router();
 
 let initWebRoutes = (app) => {
-  router.get("/", homeController.getHomePage);
 
-  router.get("/x", (req, res) => {
-    res.send("Hello World!123");
-  });
+    router.get("/", homeController.getHomePage);
 
-  router.get("/crud", homeController.getCrudPage);
-
-  return app.use("/", router);
+    router.get("/x", (req, res) => {
+        res.send("Hello World!123")
+    })
+    router.get("/crud", homeController.getCRUD);
+    router.post("/post-crud", homeController.postCRUD);
+    router.get('/get-crud', homeController.displayCRUD);
+    router.get('/edit-crud', homeController.editCRUD);
+    router.post('/put-crud', homeController.putCRUD);
+    router.get('/delete-crud', homeController.deleteCRUD);
+    return app.use("/", router)
 };
 
 module.exports = initWebRoutes;
