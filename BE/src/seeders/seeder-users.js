@@ -13,8 +13,8 @@ module.exports = {
      */
     return queryInterface.bulkInsert("Users", [
       {
-        email: "alinguyen@gmial.com",
-        password: "1234", // convert to hash password
+        email: "alinguyen@gmail.com",
+        password: "123", // convert to hash password
         firstName: "Nguyen",
         lastName: "Ali",
         address: "219 Bui Quang La, P.24 , Quan Binh Thanh",
