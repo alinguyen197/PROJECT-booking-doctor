@@ -3,19 +3,8 @@ const router = express.Router();
 
 import userController from "../controllers/userController"
 
-// Create
-
-
-// Read
-
-
-// Update
-
-
-// Delete
-
-
-router.get("/", userController.getUserPage);
+// login
+router.post("/login", userController.handleLogin);
 
 
 module.exports = router;
