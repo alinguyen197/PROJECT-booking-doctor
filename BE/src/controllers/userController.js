@@ -7,7 +7,7 @@ const handleLogin = async (req, res) => {
     if (!email || !password) {
       return res.status(500).json({
         errorCode: 1,
-        message: "Invalid email or password",
+        message: "Missing email or password",
       });
     }
     // check email
