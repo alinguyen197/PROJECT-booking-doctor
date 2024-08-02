@@ -122,3 +122,22 @@ doctor_clinic_specialty :
     - doctorId
     - clinicId
     - specialtyId
+markdown :	
+	- id
+	- doctorId
+	- clinicId
+	- specialtyid
+	- contentHTML
+	- contentMarkdown
+	- description
+	
+doctor_infor :
+    - id
+	- doctorId
+	- priceId
+	- provinceId
+	- paymentId
+	- addressClinic
+	- nameClinic
+	- note
+	- count
