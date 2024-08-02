@@ -17,15 +17,15 @@ const handleUserLogin = (email, password) => {
         });
         if (user) {
           // compare password
-          const isMatch =  bcryptjs.compareSync(password, user.password);
+          const isMatch = bcryptjs.compareSync(password, user.password);
           if (isMatch) {
             userData.errorCode = 0;
             userData.errorMessage = "Login success";
             userData.user = user;
+            delete userData?.user["password"];
           } else {
             userData.errorCode = 3;
             userData.errorMessage = "Wrong password";
-            userData.user = user;
           }
         } else {
           userData.errorCode = 2;
@@ -36,8 +36,6 @@ const handleUserLogin = (email, password) => {
         userData.errorCode = 1;
         userData.errorMessage = "Yours email is not exist in database";
       }
-
-      delete userData.user["password"];
 
       resolve(userData);
     } catch (error) {
