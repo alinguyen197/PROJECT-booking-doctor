@@ -63,6 +63,33 @@ let checkUserEmail = (email) => {
   });
 };
 
+let handleGetAllUser = (userId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let users = "";
+      if (userId === "ALL") {
+        users = await db.Users.findAll({
+          attributes: {
+            exclude: ["password"], // loại bỏ trường password
+          }
+        });
+      }
+      if (userId && userId !== "ALL") {
+        users = await db.Users.findOne({
+          where: { id: userId },
+          attributes: {
+            exclude: ["password"],
+          },
+        });
+      }
+      resolve(users);
+    } catch (error) {
+      reject(error);
+    }
+  });
+};
+
 module.exports = {
   handleUserLogin,
+  handleGetAllUser,
 };
